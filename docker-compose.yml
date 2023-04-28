@@ -1,0 +1,17 @@
+version: '1.0'
+
+services:
+  postgresql:
+    image: docker.io/bitnami/postgresql:14
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'postgresql_data:/bitnami/postgresql'
+    enviroment:
+      - POSTGRES_DATABASE=ilumeo
+      - POSTGRES_PASSWORD=2247
+      - POSTGRES_USERNAME=postgres
+
+volumes:
+  postgresql_data:
+    driver: local

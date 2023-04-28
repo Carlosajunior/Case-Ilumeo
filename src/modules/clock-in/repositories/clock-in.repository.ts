@@ -25,11 +25,11 @@ export class ClockInRepository {
     return await this.clock_in_repository.save(clock_in);
   }
 
-  async getNewestClockIns(code: string): Promise<ClockIn[] | null> {
+  async getNewestClockIns(user_id: string): Promise<ClockIn[] | null> {
     return await this.clock_in_repository
       .createQueryBuilder('Clock_In')
       .where(`DATE_TRUNC('day', "start_date") < :date`, { date: new Date() })
-      .andWhere(`user_id =: id`, { id: code })
+      .andWhere(`user_id < :id`, { id: user_id })
       .take(10)
       .getMany();
   }

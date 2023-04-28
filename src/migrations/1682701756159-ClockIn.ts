@@ -30,6 +30,16 @@ export class ClockIn1682701756159 implements MigrationInterface {
             type: 'uuid',
             isNullable: false,
           },
+          {
+            name: 'created_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
+          {
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
         ],
         foreignKeys: [
           {

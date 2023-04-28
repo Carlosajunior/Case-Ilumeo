@@ -21,6 +21,16 @@ export class User1682660855797 implements MigrationInterface {
             isNullable: false,
             isUnique: true,
           },
+          {
+            name: 'created_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
+          {
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
         ],
       })
     );
