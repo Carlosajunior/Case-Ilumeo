@@ -15,5 +15,5 @@ export const AppDataSource = new DataSource({
   logging: false,
   entities: [],
   subscribers: [],
-  migrations: ['./dist/migrations/*.js'],
+  migrations: ['./dist/src/migrations/*.js'],
 });
