@@ -21,7 +21,7 @@ export class StartDate1682686601260 implements MigrationInterface {
             isNullable: true,
           },
           {
-            name: 'start_date_id',
+            name: 'user_id',
             type: 'uuid',
             isNullable: false,
           },
@@ -29,7 +29,7 @@ export class StartDate1682686601260 implements MigrationInterface {
         foreignKeys: [
           {
             name: 'fk_Start_Date_Users',
-            columnNames: ['start_date_id'],
+            columnNames: ['user_id'],
             referencedTableName: 'Users',
             referencedColumnNames: ['id'],
           },

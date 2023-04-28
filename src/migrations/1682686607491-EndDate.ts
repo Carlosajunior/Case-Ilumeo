@@ -21,7 +21,7 @@ export class EndDate1682686607491 implements MigrationInterface {
             isNullable: true,
           },
           {
-            name: 'end_date_id',
+            name: 'user_id',
             type: 'uuid',
             isNullable: false,
           },
@@ -29,7 +29,7 @@ export class EndDate1682686607491 implements MigrationInterface {
         foreignKeys: [
           {
             name: 'fk_End_Date_Users',
-            columnNames: ['end_date_id'],
+            columnNames: ['user_id'],
             referencedTableName: 'Users',
             referencedColumnNames: ['id'],
           },
