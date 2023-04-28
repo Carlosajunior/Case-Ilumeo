@@ -2,17 +2,20 @@ import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
 import { DefaultEntity } from '../../common/shared/entities/default.entity';
 import { Users } from '../../users/entities/users.entity';
-import { type EndDateModel } from '../models/end-date.model';
+import { type ClockInModel } from '../models/clock-in.model';
 
-@Entity({ name: 'End_Date' })
-export class EndDate extends DefaultEntity implements EndDateModel {
+@Entity({ name: 'Clock_In' })
+export class ClockIn extends DefaultEntity implements ClockInModel {
   @Column()
-  date: Date;
+  start_date: Date;
 
-  @Column({ nullable: false })
+  @Column()
+  end_date: Date;
+
+  @Column()
   user_id: string;
 
-  @ManyToOne(() => Users, (User) => User.id)
+  @ManyToOne(() => Users, (Users) => Users.id)
   @JoinColumn({ name: 'user_id' })
   user: Users;
 }

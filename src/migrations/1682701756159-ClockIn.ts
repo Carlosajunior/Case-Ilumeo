@@ -1,10 +1,10 @@
 import { Table, type MigrationInterface, type QueryRunner } from 'typeorm';
 
-export class StartDate1682686601260 implements MigrationInterface {
+export class ClockIn1682701756159 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'Start_Date',
+        name: 'Clock_In',
         columns: [
           {
             name: 'id',
@@ -16,7 +16,12 @@ export class StartDate1682686601260 implements MigrationInterface {
             isUnique: true,
           },
           {
-            name: 'date',
+            name: 'start_date',
+            type: 'timestamp',
+            isNullable: true,
+          },
+          {
+            name: 'end_date',
             type: 'timestamp',
             isNullable: true,
           },
@@ -28,7 +33,7 @@ export class StartDate1682686601260 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            name: 'fk_Start_Date_Users',
+            name: 'fk_Clock_In_Users',
             columnNames: ['user_id'],
             referencedTableName: 'Users',
             referencedColumnNames: ['id'],
@@ -39,6 +44,6 @@ export class StartDate1682686601260 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('Start_Date');
+    await queryRunner.dropTable('Clock_In');
   }
 }
